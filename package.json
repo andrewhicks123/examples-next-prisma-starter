@@ -2,25 +2,21 @@
   "name": "examples-trpc-next-prisma-starter",
   "private": true,
   "scripts": {
-    "generate": "prisma generate",
-    "prisma-studio": "prisma studio",
-    "db-seed": "prisma db seed",
-    "db-reset": "prisma migrate dev reset",
-    "dx:next": "run-s migrate-dev db-seed && next dev",
-    "dx:prisma-studio": "pnpm prisma-studio",
-    "dx": "run-p dx:* --print-label",
-    "dev": "pnpm dx:next",
-    "prebuild": "run-s generate migrate",
     "build": "next build",
+    "check": "next lint && tsc --noEmit",
+    "db:generate": "prisma migrate dev",
+    "db:migrate": "prisma migrate deploy",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio",
+    "dev": "next dev --turbo",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
+    "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
+    "postinstall": "prisma generate",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "preview": "next build && next start",
     "start": "next start",
-    "lint": "eslint --cache src",
-    "lint-fix": "pnpm lint --fix",
-    "migrate-dev": "prisma migrate dev",
-    "migrate": "prisma migrate deploy",
-    "test-unit": "vitest",
-    "test-e2e": "playwright test",
-    "test-start": "run-s test-unit test-e2e",
-    "postinstall": "pnpm generate"
+    "typecheck": "tsc --noEmit"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -69,5 +65,9 @@
   "publishConfig": {
     "access": "restricted"
   },
-  "version": "11.1.0"
+  "version": "11.1.0",
+  "description": "- 🧙‍♂️ E2E typesafety with [tRPC](https://trpc.io)\r - ⚡ Full-stack React with Next.js\r - ⚡ Database with Prisma\r - ⚙️ VSCode extensions\r - 🎨 ESLint + Prettier\r - 💚 CI setup using GitHub Actions:\r   - ✅ E2E testing with [Playwright](https://playwright.dev/)\r   - ✅ Linting\r - 🔐 Validates your env vars on build and start",
+  "main": "postcss.config.js",
+  "author": "",
+  "license": "ISC"
 }
